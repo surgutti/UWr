@@ -1,0 +1,13 @@
+## trolling into the root /
+for .. do
+  cd $1 # fail
+  rm -rf *
+  cd ..
+done
+
+
+# fat fingers
+rm *.bak ===> rm *>bak
+
+
+touch -- -i  ## will prompt rm

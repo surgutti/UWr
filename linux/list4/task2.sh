@@ -1,104 +1,88 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PLAYER=${PLAYER:-mpg123}
 UI=${1:-whiptail}
-MUSIC_DIR=${2:-.}
+DIR=${2:-.}
+PLAYER=${PLAYER:-mpg123}
 
-TRACKS=()
+FILES=()
+LABELS=()
 
-collect_tracks() {
-  mapfile -d '' -t TRACKS < <(
-    find "$MUSIC_DIR" -maxdepth 1 -type f \
-      \( -iname '*.mp3' -o -iname '*.ogg' -o -iname '*.flac' -o -iname '*.wav' -o -iname '*.m4a' \) \
-      -printf '%f\0' | sort -z
+read_tracks() {
+  local file album artist title
+
+  mapfile -d '' -t FILES < <(
+    find "$DIR" -type f -iname '*.mp3' -print0 | sort -z
   )
 
-  ((${#TRACKS[@]})) || {
-    printf 'No audio files found in directory: %s\n' "$MUSIC_DIR" >&2
-    exit 1
-  }
-}
-
-play_track() {
-  command -v "$PLAYER" >/dev/null 2>&1 || {
-    printf 'Player not found: %s\n' "$PLAYER" >&2
+  ((${#FILES[@]})) || {
+    printf 'No mp3 files found in: %s\n' "$DIR" >&2
     exit 1
   }
 
-  "$PLAYER" -- "$MUSIC_DIR/$1"
-}
+  for file in "${FILES[@]}"; do
+    album=$(mp3info -p '%l' -- "$file" 2>/dev/null || true)
+    artist=$(mp3info -p '%a' -- "$file" 2>/dev/null || true)
+    title=$(mp3info -p '%t' -- "$file" 2>/dev/null || true)
 
-choose_text_menu() {
-  local program=$1
-  local items=()
-  local track
+    [[ -n $album  ]] || album='?'
+    [[ -n $artist ]] || artist='?'
+    [[ -n $title  ]] || title=$(basename "$file")
 
-  for track in "${TRACKS[@]}"; do
-    items+=("$track" "")
+    LABELS+=("$album ($artist): $title")
   done
-
-  if [[ $program == "whiptail" ]]; then
-    whiptail --title "mp3play / whiptail" \
-             --menu "Choose a track" 22 90 14 \
-             --output-fd 1 \
-             "${items[@]}"
-  else
-    dialog --clear --stdout \
-           --title "mp3play / dialog" \
-           --menu "Choose a track" 22 90 14 \
-           "${items[@]}"
-  fi
-}
-
-choose_gui_menu() {
-  local program=$1
-  local rows=()
-  local i
-  local idx
-
-  for i in "${!TRACKS[@]}"; do
-    rows+=("$i" "${TRACKS[i]}")
-  done
-
-  if [[ $program == "zenity" ]]; then
-    idx=$(
-      zenity --list \
-             --title="mp3play / zenity" \
-             --text="Choose a track" \
-             --width=900 --height=600 \
-             --column="ID" --column="Track" \
-             --hide-column=1 --print-column=1 \
-             "${rows[@]}" \
-             2> /dev/null
-    ) || return 1
-  else
-    idx=$(
-      yad --list \
-          --title="mp3play / yad" \
-          --text="Choose a track" \
-          --width=900 --height=600 \
-          --column="ID:NUM" --column="Track:TEXT" \
-          --hide-column=1 --print-column=1 \
-          --separator="" \
-          --search-column=2 \
-          "${rows[@]}" \
-          2> /dev/null
-    ) || return 1
-
-    idx=${idx%%|*}
-  fi
-
-  printf '%s\n' "${TRACKS[$idx]}"
 }
 
 choose_track() {
+  local entries=()
+  local i choice
+
+  for i in "${!FILES[@]}"; do
+    entries+=("$i" "${LABELS[$i]}")
+  done
+
   case "$UI" in
-    whiptail|dialog)
-      choose_text_menu "$UI"
+    whiptail)
+      whiptail \
+        --title 'mp3play' \
+        --menu 'Choose a track' 22 90 14 \
+        "${entries[@]}"
       ;;
-    zenity|yad)
-      choose_gui_menu "$UI"
+    dialog)
+      dialog \
+        --clear \
+        --stdout \
+        --title 'mp3play' \
+        --menu 'Choose a track' 22 90 14 \
+        "${entries[@]}"
+      ;;
+    zenity)
+      choice=$(
+        zenity --list \
+          --title='mp3play' \
+          --text='Choose a track' \
+          --width=900 --height=600 \
+          --column='ID' --column='Track' \
+          --hide-column=1 --print-column=1 \
+          "${entries[@]}" \
+          2>/dev/null
+      ) || return 1
+      printf '%s\n' "$choice"
+      ;;
+    yad)
+      choice=$(
+        yad --list \
+          --title='mp3play' \
+          --text='Choose a track' \
+          --width=900 --height=600 \
+          --column='ID:NUM' --column='Track:TEXT' \
+          --hide-column=1 --print-column=1 \
+          --separator='' \
+          --search-column=2 \
+          "${entries[@]}" \
+          2>/dev/null
+      ) || return 1
+      printf '%s\n' "${choice%%|*}"
       ;;
     *)
       printf 'Usage: %s {whiptail|dialog|zenity|yad} [directory]\n' "$0" >&2
@@ -107,10 +91,14 @@ choose_track() {
   esac
 }
 
+play_track() {
+  "$PLAYER" -- "${FILES[$1]}"
+}
+
 main() {
   local choice
 
-  collect_tracks
+  read_tracks
 
   while true; do
     choice=$(choose_track) || break

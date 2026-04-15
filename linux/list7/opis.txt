@@ -1,0 +1,21 @@
+Zadanie 1 (1 pkt).
+1. Załóż w swoim systemie nowego użytkownika: Jan Testowy <jantest>. Jeśli używasz Debiana,
+skorzystaj z wysokopoziomowych narzędzi, takich jak adduser(8). W innych systemach wybierz
+narzędzie oferowane przez Twoją dystrybucję. W ostateczności użyj niskopoziomowych poleceń
+typu useradd(8).
+2. Zapisz go do odpowiednich grup tak, aby mógł korzystać z takich urządzeń, jak CD-ROM,
+akceleracja grafiki, dźwięk, interfejs bluetooth itp. Uwaga: nie wszystkie dystrybucje Linuksa
+wykorzystują mechanizm grup do nadawania użytkownikom uprawnień dostępu do urządzeń.
+Omów wówczas mechanizm użyty w Twojej dystrybucji.
+3. Udostępnij mu za pomocą mechanizmu sudo(8) możliwość uruchamiania polecenia ip(1) jako
+użytkownik root.
+4. Utwórz grupę projekt i zapisz do niej siebie oraz Jana. Utwórz plik opis.txt i nadaj mu grupę
+projekt oraz odpowiednie prawa dostępu tak, żebyście wspólnie z Janem mogli go edytować, ale
+żeby był całkowicie niedostępny dla innych użytkowników. Sprawdź, że faktycznie obaj macie do
+niego dostęp.
+5. Sprawdź za pomocą polecenia groups(1) do jakich grup należysz, a do jakich grup należy Jan.
+6. Daj Janowi możliwość uruchamiania polecenia whoami(1) jako Ty (nie jako root). Sprawdź, co
+zostanie wypisane, jeśli Jan uruchomi to polecenie za pomocą sudo żądając zmiany użytkownika
+na Twoje konto.
+7. Skonfiguruj system tak, aby użytkownik jantest mógł samodzielnie zmienić swoje imię i nazwisko.
+Zaloguj się na konto jantest. Zmień informacje GECOS tego konta.
