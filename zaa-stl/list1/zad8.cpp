@@ -40,9 +40,9 @@ std::pair<Iter, Iter> przedzial_wartosci(const std::vector<int>& ciag, int warto
 }
 
 int main() {
-  std::vector<int> ciag = {1, 2, 3, 3, 4, 5, 5, 5, 6, 7, 7, 7, 7, 8, 9};
+  std::vector<int> ciag = {1, 2, 3, 3, 5, 5, 5, 6, 7, 7, 7, 7, 8, 9};
 
-  auto [start_it, end_it] = przedzial_wartosci(ciag, 7);
+  auto [start_it, end_it] = przedzial_wartosci(ciag, 4);
 
   for (auto it = start_it; it != end_it; ++it) {
     std::cout << *it << " ";

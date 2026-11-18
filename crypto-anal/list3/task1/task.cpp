@@ -78,6 +78,10 @@ int main(int argc, char** argv) {
 			printf("%s\n", text);
 			return 0;
 		}
+
+    if (seed % 1000000 == 0) {
+      printf("%lld\n", seed);
+    }
 	}
 
 	return 0;

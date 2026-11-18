@@ -20,13 +20,15 @@ int main() {
 
   std::vector<osoba> osoby {
     osoba {"Jan", "Kowalski", "Testowy", 2004, 21372137},
-    osoba {"Waldemar", "Bak", "Czeresniowy", 1989, 43244324}
+    osoba {"Waldemar", "Bak", "Czeresniowy", 1989, 43244324},
+    osoba {"Adam", "Bak", "Czeresniowy", 1870, 43244324},
+    osoba {"Waldemar", "Bak", "Czeresniowy", 2011, 43244324},
   };
 
   std::sort(osoby.begin(), osoby.end());
 
   for (const osoba& o : osoby) {
-    std::cout << o.imie << ' ' << o.nazwisko << std::endl;
+    std::cout << o.imie << ' ' << o.nazwisko << ' ' << o.rok_urodzenia << std::endl;
   }
 
   return 0;

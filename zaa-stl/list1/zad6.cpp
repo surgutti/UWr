@@ -9,12 +9,12 @@ int main() {
   // 05.10.2026 -> 5 października 2026
 
   std::string day = data.substr(0, 2);
-  int month = std::stoi(data.substr(3, 2));
+  // int month = std::stoi(data.substr(3, 2));
   std::string year = data.substr(6, 4);
   
   std::cout << day;
 
-  switch (month) {
+  switch (int month = std::stoi(data.substr(3, 2)); month) {
     case 1:
       std::cout << " styczenia ";
       break;
