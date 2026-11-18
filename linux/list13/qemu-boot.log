@@ -1,0 +1,301 @@
+[    0.000000] Booting Linux on physical CPU 0xf00
+[    0.000000] Linux version 6.12.75+rpt-rpi-v7 (serge@raspberrypi.com) (arm-linux-gnueabihf-gcc-14 (Raspbian 14.2.0-19+rpi1) 14.2.0, GNU ld (GNU Binutils for Raspbian) 2.44) #1 SMP Raspbian 1:6.12.75-1+rpt1 (2026-03-11)
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: Raspberry Pi 2 Model B
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] Reserved memory: created CMA memory pool at 0x38000000, size 64 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] OF: reserved mem: 0x38000000..0x3bffffff (65536 KiB) map reusable linux,cma
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000000000000-0x000000003bffffff]
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000003bffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000003bffffff]
+[    0.000000] percpu: Embedded 19 pages/cpu s45772 r8192 d23860 u77824
+[    0.000000] pcpu-alloc: s45772 r8192 d23860 u77824 alloc=19*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Kernel command line: rw loglevel=8 console=ttyAMA0,115200 root=/dev/mmcblk0p2 rootwait systemd.log_level=debug
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 245760
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 37347 entries in 110 pages
+[    0.000000] ftrace: allocated 110 pages with 5 groups
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] 	Rude variant of Tasks RCU enabled.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] RCU Tasks Rude: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.000000] RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000435] sched_clock: 57 bits at 63MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000882] Switching to timer-based delay loop, resolution 16ns
+[    0.012924] Console: colour dummy device 80x30
+[    0.017295] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.017797] CPU: Testing write buffer coherency: ok
+[    0.021777] pid_max: default: 32768 minimum: 301
+[    0.024709] LSM: initializing lsm=capability
+[    0.034497] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.034657] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.111649] CPU0: update cpu_capacity 1024
+[    0.111864] CPU0: thread -1, cpu 0, socket 15, mpidr 80000f00
+[    0.152061] Setting up static identity map for 0x100000 - 0x10003c
+[    0.155682] rcu: Hierarchical SRCU implementation.
+[    0.155807] rcu: 	Max phase no-delay instances is 1000.
+[    0.166353] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+[    0.183561] smp: Bringing up secondary CPUs ...
+[    0.191547] CPU1: update cpu_capacity 1024
+[    0.191600] CPU1: thread -1, cpu 1, socket 15, mpidr 80000f01
+[    0.204046] CPU2: update cpu_capacity 1024
+[    0.204106] CPU2: thread -1, cpu 2, socket 15, mpidr 80000f02
+[    0.209693] CPU3: update cpu_capacity 1024
+[    0.209755] CPU3: thread -1, cpu 3, socket 15, mpidr 80000f03
+[    0.210864] smp: Brought up 1 node, 4 CPUs
+[    0.211045] SMP: Total of 4 processors activated (500.00 BogoMIPS).
+[    0.211148] CPU: All CPU(s) started in SVC mode.
+[    0.230030] Memory: 885020K/983040K available (11264K kernel code, 1603K rwdata, 3572K rodata, 1024K init, 374K bss, 28424K reserved, 65536K cma-reserved)
+[    0.245955] devtmpfs: initialized
+[    0.280400] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.305146] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.306543] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.330124] pinctrl core: initialized pinctrl subsystem
+[    0.366366] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.384016] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.391563] audit: initializing netlink subsys (disabled)
+[    0.403000] audit: type=2000 audit(0.370:1): state=initialized audit_enabled=0 res=1
+[    0.406395] thermal_sys: Registered thermal governor 'step_wise'
+[    0.409468] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.409657] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.411579] Serial: AMBA PL011 UART driver
+[    0.436950] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    0.459308] raspberrypi-firmware soc:firmware: Attached to firmware from 1970-01-05T00:12:17, variant unknown
+[    0.470141] raspberrypi-firmware soc:firmware: Firmware hash is 0000000000000000000000000000000000000000
+[    0.487958] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[    0.512730] bcm2835-dma 3f007000.dma-controller: DMA legacy API manager, dmachans=0x1
+[    0.522571] SCSI subsystem initialized
+[    0.524652] usbcore: registered new interface driver usbfs
+[    0.525091] usbcore: registered new interface driver hub
+[    0.525294] usbcore: registered new device driver usb
+[    0.529796] pps_core: LinuxPPS API ver. 1 registered
+[    0.529818] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.529906] PTP clock support registered
+[    0.551290] clocksource: Switched to clocksource arch_sys_counter
+[    0.555075] VFS: Disk quotas dquot_6.6.0
+[    0.555307] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.646694] NET: Registered PF_INET protocol family
+[    0.648449] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.658992] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.659212] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.659313] TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+[    0.659571] TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+[    0.660238] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.662006] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.662650] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.664952] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.670809] RPC: Registered named UNIX socket transport module.
+[    0.670881] RPC: Registered udp transport module.
+[    0.670897] RPC: Registered tcp transport module.
+[    0.670910] RPC: Registered tcp-with-tls transport module.
+[    0.670922] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    2.449886] Initialise system trusted keyrings
+[    2.456124] workingset: timestamp_bits=14 max_order=18 bucket_order=4
+[    2.463940] NFS: Registering the id_resolver key type
+[    2.464477] Key type id_resolver registered
+[    2.464528] Key type id_legacy registered
+[    2.465020] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    2.465146] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    2.471974] Key type asymmetric registered
+[    2.472104] Asymmetric key parser 'x509' registered
+[    2.472517] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 247)
+[    2.472746] io scheduler mq-deadline registered
+[    2.472834] io scheduler kyber registered
+[    2.473366] io scheduler bfq registered
+[    2.493613] pinctrl-bcm2835 3f200000.gpio: GPIO_OUT persistence: yes
+[    2.525570] ledtrig-cpu: registered to indicate activity on CPUs
+[    2.533485] bcm2708_fb soc:fb: FB found 1 display(s)
+[    2.569530] Console: switching to colour frame buffer device 100x30
+[    2.575472] bcm2708_fb soc:fb: Registered framebuffer for display 0, size 800x480
+[    2.592535] bcm2835-rng 3f104000.rng: hwrng registered
+[    2.593246] vc-mem: phys_addr:0x00000000 mem_base=0x00000000 mem_size:0x00000000(0 MiB)
+[    2.594221] random: crng init done
+[    2.661653] brd: module loaded
+[    2.687202] loop: module loaded
+[    2.691737] Loading iSCSI transport class v2.0-870.
+[    2.697643] usbcore: registered new interface driver lan78xx
+[    2.697778] usbcore: registered new interface driver smsc95xx
+[    2.697847] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+[    2.903626] Core Release: 2.94a
+[    2.903912] Setting default values for core params
+[    2.905388] Finished setting default values for core params
+[    3.107393] Using Buffer DMA mode
+[    3.107472] Periodic Transfer Interrupt Enhancement - disabled
+[    3.107497] Multiprocessor Interrupt Enhancement - disabled
+[    3.107576] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    3.107861] Shared Tx FIFO mode
+[    3.113608] INFO:: FIQ DMA bounce buffers: virt = b8054000 dma = 0xf8054000 len=9024
+[    3.113986] FIQ FSM acceleration enabled for :
+[    3.113986] Non-periodic Split Transactions
+[    3.113986] Periodic Split Transactions
+[    3.113986] High-Speed Isochronous Endpoints
+[    3.113986] Interrupt/Control Split Transaction hack enabled
+[    3.114036] dwc_otg: Microframe scheduler enabled
+[    3.115010] INFO:: FIQ on core 1
+[    3.115055] INFO:: FIQ ASM at 808e566c length 36
+[    3.115269] INFO:: MPHI regs_base at bc810000
+[    3.115799] dwc_otg 3f980000.usb: DWC OTG Controller
+[    3.116290] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+[    3.117026] dwc_otg 3f980000.usb: irq 89, io mem 0x00000000
+[    3.117723] Init: Port Power? op_state=1
+[    3.117758] Init: Power Port (1)
+[    3.123393] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.12
+[    3.123469] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    3.123505] usb usb1: Product: DWC OTG Controller
+[    3.123533] usb usb1: Manufacturer: Linux 6.12.75+rpt-rpi-v7 dwc_otg_hcd
+[    3.123560] usb usb1: SerialNumber: 3f980000.usb
+[    3.128443] hub 1-0:1.0: USB hub found
+[    3.129132] hub 1-0:1.0: 1 port detected
+[    3.134740] dwc_otg: FIQ enabled
+[    3.134776] dwc_otg: NAK holdoff enabled
+[    3.134795] dwc_otg: FIQ split-transaction FSM enabled
+[    3.134874] Module dwc_common_port init
+[    3.136564] usbcore: registered new interface driver usb-storage
+[    3.137896] mousedev: PS/2 mouse device common for all mice
+[    3.154358] sdhci: Secure Digital Host Controller Interface driver
+[    3.154391] sdhci: Copyright(c) Pierre Ossman
+[    3.156245] sdhci-pltfm: SDHCI platform and OF driver helper
+[    3.156554] hid: raw HID events driver (C) Jiri Kosina
+[    3.157260] usbcore: registered new interface driver usbhid
+[    3.157287] usbhid: USB HID core driver
+[    3.177980] hw perfevents: enabled with armv7_cortex_a7 PMU driver, 5 (8000000f) counters available
+[    3.182431] Initializing XFRM netlink socket
+[    3.182834] NET: Registered PF_PACKET protocol family
+[    3.184105] Key type dns_resolver registered
+[    3.184815] Registering SWP/SWPB emulation handler
+[    3.226897] registered taskstats version 1
+[    3.228928] Loading compiled-in X.509 certificates
+[    3.249632] Key type .fscrypt registered
+[    3.249675] Key type fscrypt-provisioning registered
+[    3.269604] pl011-axi 3f201000.serial: cts_event_workaround enabled
+[    3.278399] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 114, base_baud = 0) is a PL011 AXI
+[    3.280884] printk: legacy console [ttyAMA0] enabled
+[    3.324950] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    3.326364] bcm2835-power bcm2835-power: ASB register ID returned 0x00000000
+[    3.337182] of_cfs_init
+[    3.340453] of_cfs_init: OK
+[    3.345927] clk: Disabling unused clocks
+[    3.348053] PM: genpd: Disabling unused power domains
+[    3.426699] sdhost-bcm2835 3f202000.mmc: loaded - DMA enabled (>1)
+[    3.444695] Waiting for root device /dev/mmcblk0p2...
+[    3.522469] mmc0: host does not support reading read-only switch, assuming write-enable
+[    3.525620] mmc0: new high speed SDHC card at address d855
+[    3.534375] mmcblk0: mmc0:d855 QEMU! 8.00 GiB
+[    3.559295]  mmcblk0: p1 p2
+[    3.564311] mmcblk0: mmc0:d855 QEMU! 8.00 GiB
+[    4.548114] EXT4-fs (mmcblk0p2): recovery complete
+[    4.553878] EXT4-fs (mmcblk0p2): mounted filesystem fcd75d05-74c0-46f1-b0a5-26fb5cc88792 r/w with ordered data mode. Quota mode: none.
+[    4.557805] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[    4.614558] devtmpfs: mounted
+[    4.741289] Freeing unused kernel image (initmem) memory: 1024K
+[    4.837793] Run /sbin/init as init process
+[    4.838054]   with arguments:
+[    4.838219]     /sbin/init
+[    4.838323]   with environment:
+[    4.838434]     HOME=/
+[    4.838597]     TERM=linux
+[    9.066111] systemd[1]: Setting '/proc/sys/kernel/printk_devkmsg' to 'on'
+[    9.102308] systemd[1]: Unable to load SELinux policy. Ignoring.
+[    9.103993] systemd[1]: Smack is not enabled in the kernel.
+[    9.110745] systemd[1]: AppArmor either not supported by the kernel or disabled.
+[    9.113746] systemd[1]: IMA support is disabled in the kernel, ignoring: No such file or directory
+[    9.115589] systemd[1]: IPE support is disabled in the kernel, ignoring: No such file or directory
+[    9.476323] systemd[1]: System time advanced to timestamp on /var/lib/systemd/timesync/clock: Tue 2026-04-21 01:20:36 BST
+[    9.527474] systemd[1]: Your kernel apparently lacks built-in ipv6 support. Might be a good idea to compile it in. We'll now try to work around this by loading the module...
+[    9.593653] systemd[1]: Loaded 'libkmod.so.2' via dlopen()
+[   10.004686] systemd[1]: Loading module: ipv6
+[   10.593200] NET: Registered PF_INET6 protocol family
+[   10.607394] Segment Routing with IPv6
+[   10.608029] In-situ OAM (IOAM) with IPv6
+[   10.612541] systemd[1]: Inserted module 'ipv6'
+[   10.621599] systemd[1]: Loading module: ip_tables
+[   13.474542] systemd[1]: Inserted module 'ip_tables'
+[   13.493753] systemd[1]: No virtualization found in DMI vendor table.
+[   13.502849] systemd[1]: Unable to read /sys/firmware/dmi/entries/0-0/raw, using the virtualization information found in DMI vendor table, ignoring: No such file or directory
+[   13.567698] systemd[1]: UML virtualization not found in /proc/cpuinfo.
+[   13.577691] systemd[1]: Virtualization XEN not found, /proc/xen does not exist
+[   13.584474] systemd[1]: No virtualization found in CPUID
+[   13.617898] systemd[1]: No virtualization found in /proc/device-tree/*
+[   13.624682] systemd[1]: This platform does not support /proc/sysinfo
+[   13.631191] systemd[1]: Found VM virtualization none
+[   13.644800] systemd[1]: Loading module: dmi-sysfs
+[   13.651197] systemd[1]: Failed to find module 'dmi-sysfs'
+[   13.893532] systemd[1]: Mounting tmpfs to /dev/shm of type tmpfs with options mode=01777.
+[   13.910041] systemd[1]: Mounting tmpfs (tmpfs) on /dev/shm (MS_NOSUID|MS_NODEV|MS_STRICTATIME "mode=01777")...
+[   13.946127] systemd[1]: Mounting devpts to /dev/pts of type devpts with options mode=0600,gid=5.
+[   13.955914] systemd[1]: Mounting devpts (devpts) on /dev/pts (MS_NOSUID|MS_NOEXEC "mode=0600,gid=5")...
+[   14.011581] systemd[1]: Mounting tmpfs to /run of type tmpfs with options mode=0755,size=20%,nr_inodes=800k.
+[   14.018179] systemd[1]: Mounting tmpfs (tmpfs) on /run (MS_NOSUID|MS_NODEV|MS_STRICTATIME "mode=0755,size=20%,nr_inodes=800k")...
+[   14.039246] systemd[1]: No filesystem is currently mounted on /sys/fs/cgroup.
+[   14.089121] systemd[1]: Mounting cgroup2 to /sys/fs/cgroup of type cgroup2 with options nsdelegate,memory_recursiveprot.
+[   14.097220] systemd[1]: Mounting cgroup2 (cgroup2) on /sys/fs/cgroup (MS_NOSUID|MS_NODEV|MS_NOEXEC "nsdelegate,memory_recursiveprot")...
+[   14.170157] systemd[1]: Mounting pstore to /sys/fs/pstore of type pstore with options n/a.
+[   14.176793] systemd[1]: Mounting pstore (pstore) on /sys/fs/pstore (MS_NOSUID|MS_NODEV|MS_NOEXEC "")...
+[   14.210353] systemd[1]: Mounting bpf to /sys/fs/bpf of type bpf with options mode=0700.
+[   14.214421] systemd[1]: Mounting bpf (bpf) on /sys/fs/bpf (MS_NOSUID|MS_NODEV|MS_NOEXEC "mode=0700")...
+[   19.985155] systemd[1]: Found cgroup2 on /sys/fs/cgroup/, full unified hierarchy
+[   20.059737] systemd[1]: Reading EFI variable /sys/firmware/efi/efivars/SystemdOptions-8cf2644b-4b0b-428f-9387-6d876050dc67.
+[   20.072602] systemd[1]: open("/sys/firmware/efi/efivars/SystemdOptions-8cf2644b-4b0b-428f-9387-6d876050dc67") failed: No such file or directory
+[   20.889662] systemd[1]: ProtectSystem=auto selected, but not running in an initrd, skipping.
+[!p]104[?7h[   20.911294] systemd[1]: systemd 257.9-1~deb13u1+rpi1 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +IPE +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -BTF -XKBCOMMON -UTMP +SYSVINIT +LIBARCHIVE)
+[   20.913430] systemd[1]: No confidential virtualization detection on this architecture
+[   20.914872] systemd[1]: Detected architecture arm.
+[   20.925651] systemd[1]: Detected first boot.
+[   20.926337] systemd[1]: Kernel version 6.12.75+rpt-rpi-v7, our baseline is 5.4
+[   20.977731] systemd[1]: No credentials passed via fw_cfg.
+[   20.981144] systemd[1]: No credentials passed from initrd.
+[   20.982020] systemd[1]: Acquired 0 regular credentials, 0 untrusted credentials.
+
+[0;1;39mWelcome to [0m[1mRaspbian GNU/Linux 13 (trixie)[0m[0;1;39m![0m
+
+[   21.128168] systemd[1]: Hostname set to <raspberrypi>.
+[   21.196643] systemd[1]: Initializing machine ID from random generator.
+[   21.257147] systemd[1]: Bind-mounting /run/machine-id on /etc/machine-id (MS_BIND "")...
+[   21.258989] systemd[1]: Installed transient /etc/machine-id file.
+[   21.259632] systemd[1]: Changing mount flags /etc/machine-id (MS_RDONLY|MS_REMOUNT|MS_BIND "")...
+[   21.364051] systemd[1]: Successfully added address 127.0.0.1 to loopback interface
+[   21.365705] systemd[1]: Successfully added address ::1 to loopback interface
+[   21.367413] systemd[1]: Successfully brought loopback interface up
+[   21.374863] systemd[1]: Setting '/proc/sys/net/unix/max_dgram_qlen' to '512'
+[   21.378657] systemd[1]: Setting '/proc/sys/fs/file-max' to '2147483647'
+[   21.382125] systemd[1]: Setting '/proc/sys/fs/nr_open' to '2147483644'
+[   21.384246] systemd[1]: Couldn't write fs.nr_open as 2147483644, halving it.
+[   21.385414] systemd[1]: Setting '/proc/sys/fs/nr_open' to '1073741820'
+[   21.387052] systemd[1]: Couldn't write fs.nr_open as 1073741820, halving it.
+[   21.388145] systemd[1]: Setting '/proc/sys/fs/nr_open' to '536870908'
+[   21.389409] systemd[1]: Successfully bumped fs.nr_open to 536870908
+[   21.514785] systemd[1]: Found cgroup2 on /sys/fs/cgroup/, full unified hierarchy
+[   21.515698] systemd[1]: Unified cgroup hierarchy is located at /sys/fs/cgroup.
+[   21.736712] systemd[1]: bpf-firewall: Got EBADF when using BPF_F_ALLOW_MULTI, which indicates it is supported. Yay!
+[   21.739746] systemd[1]: Controller 'cpu' supported: yes
+[   21.740955] systemd[1]: Controller 'cpuacct' supported: no
+[   21.741869] systemd[1]: Controller 'cpuset' supported: yes
+[   21.742726] systemd[1]: Controller 'io' supported: yes
+[   21.743500] systemd[1]: Controller 'blkio' supported: no
+[   21.744291] systemd[1]: Controller 'memory' supported: yes
+[   21.745250] systemd[1]: Controller 'devices' supported: no
+[   21.745824] systemd[1]: Controller 'pids' supported: yes
+[   21.746305] systemd[1]: Controller 'bpf-firewall' supported: yes
+[   21.746772] systemd[1]: Controller 'bpf-devices' supported: yes
+[   21.747236] systemd[1]: Controller 'bpf-foreign' supported: yes
+[   21.747727] systemd[1]: Controller 'bpf-socket-bind' supported: no
+[   21.748236] systemd[1]: Controller 'bpf-restrict-network-interfaces' supported: no
+[   21.752840] systemd[1]: Set up TFD_TIMER_CANCEL_ON_SET timerfd.
+[   21.768199] systemd[1]: Failed to establish memory pressure event source, ignoring: Operation not supported
+[   21.772891] systemd[1]: Using systemd-executor binary from '/usr/lib/systemd/systemd-executor'.

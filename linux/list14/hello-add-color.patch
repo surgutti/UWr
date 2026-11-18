@@ -1,0 +1,98 @@
+--- src/hello.c.orig	2026-06-02 15:03:56.932292614 +0200
++++ src/hello.c	2026-06-02 15:04:22.856493704 +0200
+@@ -61,6 +61,7 @@
+      no-wrap */
+   fputs (_("  -t, --traditional       use traditional greeting\n"), out);
+   fputs (_("  -g, --greeting=TEXT     use TEXT as the greeting message\n"), out);
++  fputs (_("  -c, --color=COLOR       use COLOR as color of the greetings from [red, blue, green, yellow]\n"), out);
+   fputs ("\n", out);
+   fputs (_("      --help     display this help and exit\n"), out);
+   fputs (_("      --version  output version information and exit\n"), out);
+@@ -80,7 +81,7 @@
+ }
+ 
+ static void
+-parse_options (int argc, char *argv[], const char **greeting_msg)
++parse_options (int argc, char *argv[], const char **greeting_msg, const char **color)
+ {
+   int optc;
+   int lose = 0;
+@@ -93,10 +94,11 @@
+     {"traditional", no_argument, NULL, 't'},
+     {"help", no_argument, NULL, OPT_HELP},
+     {"version", no_argument, NULL, OPT_VERSION},
++    {"color", required_argument, NULL, 'c'},
+     {NULL, 0, NULL, 0}
+   };
+ 
+-  while ((optc = getopt_long (argc, argv, "g:t", longopts, NULL)) != -1)
++  while ((optc = getopt_long (argc, argv, "g:tc:", longopts, NULL)) != -1)
+     switch (optc)
+       {
+ 	/* --help and --version exit immediately, per GNU coding standards.  */
+@@ -111,6 +113,16 @@
+       case 't':
+ 	*greeting_msg = _("hello, world");
+ 	break;
++      case 'c':
++  if (strcmp(optarg, "red") == 0)
++    *color = "\033[31m";
++  else if (strcmp(optarg, "green") == 0)
++    *color = "\033[32m";
++  else if (strcmp(optarg, "yellow") == 0)
++    *color = "\033[33m";
++  else if (strcmp(optarg, "blue") == 0)
++    *color = "\033[34m";
++  break;
+       default:
+ 	lose = 1;
+ 	break;
+@@ -130,6 +142,7 @@
+ main (int argc, char *argv[])
+ {
+   const char *greeting_msg;
++  const char *color = "\033[0m";
+   wchar_t *mb_greeting;
+   mbstate_t mbstate = { 0, };
+   size_t len;
+@@ -154,7 +167,7 @@
+      This is implemented in the Gnulib module "closeout".  */
+   atexit (close_stdout);
+ 
+-  parse_options(argc, argv, &greeting_msg);
++  parse_options(argc, argv, &greeting_msg, &color);
+ 
+   len = strlen(greeting_msg) + 1;
+   mb_greeting = xmalloc(len * sizeof(wchar_t));
+@@ -163,7 +176,7 @@
+     error (EXIT_FAILURE, errno, _("conversion to a multibyte string failed"));
+ 
+   /* Print greeting message and exit. */
+-  wprintf (L"%ls\n", mb_greeting);
++  wprintf (L"%s%ls\033[0m\n", color, mb_greeting);
+   free(mb_greeting);
+ 
+   exit (EXIT_SUCCESS);
+--- doc/hello.texi.orig	2026-06-02 15:04:08.076378941 +0200
++++ doc/hello.texi	2026-06-02 15:06:57.293709436 +0200
+@@ -206,7 +206,6 @@
+ hi
+ @end example
+ 
+-
+ @node Invoking hello
+ @chapter Invoking @command{hello}
+ 
+@@ -233,6 +232,12 @@
+ @opindex -g
+ Output @var{text} instead of the default greeting.
+ 
++@item --color=@var{color}
++@itemx -c @var{text}
++@opindex --color
++@opindex -c
++Pick color of greetings from [red, green, blue, yellow] instaed of default.
++
+ @item --help
+ @itemx -h
+ @opindex --help
